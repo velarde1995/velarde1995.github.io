@@ -1,7 +1,4 @@
-/* --- Importación de Tipografía Moderna --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-/* --- Variables de Color (Raíz) para fácil modificación --- */
+/* --- Variables y Estilos Globales --- */
 :root {
     --bg-dark-navy: #0a192f;
     --bg-light-navy: #112240;
@@ -11,11 +8,14 @@
     --accent-cyan-transparent: rgba(100, 255, 218, 0.1);
 }
 
-/* --- Estilos Globales y Reseteo --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -23,81 +23,10 @@ body {
     background-color: var(--bg-dark-navy);
     color: var(--text-slate);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Mejora renderizado de fuentes */
+    -webkit-font-smoothing: antialiased;
 }
 
-/* --- Barra de Navegación (Nueva) --- */
-
-/* --- Cabecera Profesional y Equilibrada --- */
-/* --- Mejora de la Identidad de Marca "Velarde IA" --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    position: fixed; /* La clave para que sea 'sticky' */
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background-color: rgba(10, 25, 47, 0.85); /* Fondo semitransparente */
-    backdrop-filter: blur(10px); /* Efecto 'blur' moderno */
-    border-bottom: 1px solid #112240;
-.brand-name {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    /* Quitamos el color directo para aplicar gradiente al texto */
-    /* color: var(--text-light-slate); */ 
-    font-weight: 700;
-    font-size: 2.2em;
-    position: relative; /* Necesario para efectos pseudo-elementos */
-    /* Ajuste para que el texto "Velarde IA" sea un poco más ancho o comprimido */
-    letter-spacing: -0.03em; 
-    line-height: 1; /* Para controlar la altura de la línea si hay subtítulos */
-}
-
-/* Estilo para el texto "Velarde IA" (el <span>) */
-.brand-name span {
-    /* Aplicamos un gradiente moderno al texto */
-    background: linear-gradient(45deg, #a8c0ff 0%, #3f2b96 100%); /* Gradiente azul/morado */
-    -webkit-background-clip: text; /* Hace que el gradiente solo se vea en el texto */
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente para ver el gradiente */
-    font-weight: 800; /* Hacemos el texto más audaz */
-    text-shadow: 0 0 8px rgba(100, 255, 218, 0.4), 0 0 15px rgba(168, 192, 255, 0.2); /* Sutil resplandor */
-    transition: all 0.3s ease;
-}
-
-/* Efecto al pasar el ratón por el texto */
-.brand-name span:hover {
-    background: linear-gradient(45deg, var(--accent-cyan) 0%, #61dbda 100%); /* Cambia el gradiente al hover */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 12px var(--accent-cyan), 0 0 25px rgba(100, 255, 218, 0.4); /* Resplandor más intenso */
-}
-
-.logo-inline {
-    height: 70px; /* Tamaño del logo */
-    margin-right: 15px;
-    filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.5)); /* Sombra para dar un efecto de brillo */
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.logo-inline:hover {
-    filter: drop-shadow(0 0 15px var(--accent-cyan)) brightness(1.2); /* Brillo más fuerte al pasar el ratón */
-    transform: scale(1.05); /* Pequeño zoom al logo */
-}
-
-/* --- Asegúrate de que este estilo exista y sea correcto, si no lo tienes, añádelo --- */
-/* Este estilo es para el eslogan "Soluciones inteligentes para tu negocio" si lo mantienes */
-nav p {
-    /* Si tienes un eslogan en la cabecera, aquí irían sus estilos,
-       pero con la nueva navegación, es probable que no haya un 'p' directo en 'nav'.
-       Si lo tienes, asegúrate de que no interfiera con el nuevo diseño de 'brand-name'.
-       Si lo quitaste de HTML, puedes eliminar esta regla de CSS. */
-    display: none; /* Oculta el eslogan si ya no lo usas en el HTML de la nav */
-}
-
-/* --- Asegúrate que el nav en general esté bien estilizado --- */
+/* --- Navegación --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -111,32 +40,117 @@ nav {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #112240;
 }
+
+.brand-name {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.8em;
 }
 
-/* --- Sección Hero (Reemplaza el antiguo Header) --- */
+.brand-name span {
+    background: linear-gradient(45deg, #a8c0ff 0%, #3f2b96 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.4);
+    transition: all 0.3s ease;
+}
+
+.brand-name span:hover {
+    background: linear-gradient(45deg, var(--accent-cyan) 0%, #61dbda 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 12px var(--accent-cyan);
+}
+
+.logo-inline {
+    height: 60px;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.5));
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-inline:hover {
+    filter: drop-shadow(0 0 15px var(--accent-cyan)) brightness(1.2);
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.nav-links a {
+    color: var(--text-slate);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+}
+
+.nav-contact-button {
+    padding: 10px 20px;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.nav-contact-button:hover {
+    background-color: var(--accent-cyan-transparent);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--accent-cyan);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Hero Section --- */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 0 50px;
-    text-align: left;
+    padding: 0 20px;
+    text-align: center;
     max-width: 1000px;
     margin: 0 auto;
 }
 
 .hero-content h1 {
-    font-size: clamp(40px, 8vw, 70px); /* Tamaño de fuente adaptable */
+    font-size: clamp(35px, 8vw, 70px);
     color: var(--text-light-slate);
     font-weight: 700;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.1em;
+    font-size: 1em;
     color: var(--text-slate);
     max-width: 600px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;
 }
 
 .cta-button {
@@ -155,7 +169,7 @@ nav {
     background-color: var(--accent-cyan-transparent);
 }
 
-/* --- Estilos Generales para Secciones --- */
+/* --- Secciones Generales --- */
 main {
     padding: 100px 20px;
     max-width: 1100px;
@@ -173,7 +187,7 @@ h2 {
     margin-bottom: 50px;
     position: relative;
 }
-/* Línea decorativa debajo del título */
+
 h2::after {
     content: '';
     display: block;
@@ -183,11 +197,44 @@ h2::after {
     margin: 10px auto 0;
 }
 
+/* --- Prueba Social (Logos) --- */
+.social-proof-section {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 100px;
+}
 
-/* --- Sección de Servicios (Rediseño con "Glassmorphism") --- */
+.social-proof-section h4 {
+    color: var(--text-slate);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.logos-container img {
+    height: 150px;
+    opacity: 0.7;
+    filter: grayscale(80%);
+    transition: all 0.4s ease;
+}
+
+.logos-container img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* --- Sección de Servicios --- */
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
 }
 
@@ -217,253 +264,44 @@ h2::after {
     font-size: 1.4em;
 }
 
-/* --- Sección de Proceso --- */
-.process-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+/* --- Sección de Proyectos (Nueva) --- */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.process-step {
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
+.project-card {
+    background-color: var(--bg-light-navy);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.step-number {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--accent-cyan);
-    margin-bottom: 10px;
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
-.process-step h3 {
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
     color: var(--text-light-slate);
     margin-bottom: 10px;
 }
 
 /* --- Footer --- */
 footer {
-    text-align: center;
-    padding: 40px 20px; /* Aumentar el padding para más espacio vertical */
-    background-color: var(--bg-dark-navy); /* Asegurar el mismo fondo */
-    color: var(--text-slate);
-    font-size: 0.9em;
-    width: 100%; /* Ocupar todo el ancho */
-}
-
-/* --- Botón Flotante y Pop-up de Contacto --- */
-.contact-button {
-    background-color: var(--accent-cyan);
-    color: var(--bg-dark-navy);
-    /* Mismos estilos de posición y tamaño */
-    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-    border: none; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex; justify-content: center; align-items: center; font-size: 1.8em;
-    cursor: pointer; transition: transform 0.3s ease; z-index: 1000;
-}
-.contact-button:hover {
-    transform: scale(1.1);
-}
-
-/* --- Formulario de Contacto Estético y Profesional --- */
-.contact-popup {
-    background-color: var(--bg-light-navy);
-    border: 1px solid #1d2d50; /* Borde más sutil */
-    color: var(--text-light-slate);
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 370px; /* Un poco más ancho */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    padding: 30px; /* Más padding interno */
-    transform: scale(0.95) translateY(120%); /* Animación mejorada */
-    transform-origin: bottom right;
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    z-index: 1000;
-    opacity: 0;
-}
-
-.contact-popup.show {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-}
-
-/* Usamos Flexbox para ordenar el formulario */
-.contact-popup form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espacio uniforme entre todos los elementos del form */
-}
-
-.contact-popup form label {
-    font-size: 0.9em;
-    color: var(--text-slate);
-}
-
-/* Quitamos márgenes individuales para que 'gap' controle el espacio */
-.contact-popup form input,
-.contact-popup form textarea,
-.contact-popup form button {
-    width: 100%;
-    margin-bottom: 0; 
-    box-sizing: border-box;
-}
-
-.contact-popup input, .contact-popup textarea {
-    background-color: var(--bg-dark-navy);
-    border: 1px solid #2c3a5a;
-    border-radius: 5px;
-    color: var(--text-light-slate);
-    padding: 14px; /* Más padding para comodidad al escribir */
-    font-size: 1em;
-    font-family: 'Poppins', sans-serif;
-}
-
-.contact-popup input:focus, .contact-popup textarea:focus {
-    border-color: var(--accent-cyan);
-    outline: none;
-    box-shadow: 0 0 0 3px var(--accent-cyan-transparent);
-}
-
-.contact-popup button[type="submit"] {
-    background-color: var(--accent-cyan);
-    color: var(--bg-dark-navy);
-    padding: 15px;
-    font-size: 1.1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.contact-popup button[type="submit"]:hover {
-    opacity: 0.85;
-}
-/* Dentro de .contact-popup-header, busca las reglas existentes y modifícalas */
-.contact-popup-header {
-    display: flex;
-    justify-content: space-between; /* Empuja la X a la derecha */
-    align-items: center; /* Centra verticalmente el título y la X */
-    padding-bottom: 15px;
-    margin-bottom: 20px; /* Asegura un buen espacio entre el encabezado y el formulario */
-    border-bottom: 1px solid #1d2d50; /* Línea sutil para separar el encabezado */
-}
-
-.contact-popup-header h3 {
-    margin: 0;
-    font-size: 1.4em;
-    color: var(--text-light-slate);
-    font-weight: 600;
-}
-
-/* Estilos para el botón de cerrar (la X) */
-.contact-popup .close-button {
-    background: none;
-    border: none;
-    font-size: 2.2em; /* Hacemos la X un poco más grande para que sea más fácil de pulsar */
-    line-height: 1;
-    color: var(--text-slate); /* Color más suave */
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-    padding: 5px; /* Para hacer el área de clic un poco más grande */
-}
-
-.contact-popup .close-button:hover {
-    color: var(--accent-cyan); /* Color de acento al pasar el ratón */
-    transform: scale(1.1); /* Pequeña animación */
-}
-/* --- 1. Nueva Navegación Fija y Funcional --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    position: fixed; /* La clave para que sea 'sticky' */
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background-color: rgba(10, 25, 47, 0.85); /* Fondo semitransparente */
-    backdrop-filter: blur(10px); /* Efecto 'blur' moderno */
-    border-bottom: 1px solid #112240;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: var(--text-slate);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent-cyan);
-}
-
-.nav-contact-button {
-    padding: 10px 20px;
-    border: 1px solid var(--accent-cyan);
-    border-radius: 5px;
-    background-color: transparent;
-    color: var(--accent-cyan);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.nav-contact-button:hover {
-    background-color: var(--accent-cyan-transparent);
-}
-
-/* --- 2. Sección de Prueba Social (Logos) --- */
-.social-proof-section {
-    text-align: center;
-    padding: 0 20px;
-    margin-bottom: 100px;
-}
-
-.social-proof-section h4 {
-    color: var(--text-slate);
-    margin-bottom: 30px;
-    font-weight: 400;
-}
-
-.logos-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.logos-container img {
-    height: 200px; /* Tamaño de los logos aumentado */
-    opacity: 0.7; /* Ligeramente más visibles por defecto */
-    filter: grayscale(80%); /* Menos gris por defecto, pero aún tenue */
-    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-    padding: 5px; /* Pequeño padding para el efecto de borde/sombra */
-    border-radius: 5px; /* Bordes ligeramente redondeados */
-    box-shadow: inset 0 0 5px rgba(100, 255, 218, 0.05); /* Sombra interior muy sutil */
-}
-
-.logos-container img:hover {
-    opacity: 1; /* Totalmente visible al pasar el ratón */
-    filter: grayscale(0%); /* A color al pasar el ratón */
-    transform: translateY(-5px) scale(1.05); /* Pequeño levantamiento y zoom */
-    box-shadow: 0 0 15px var(--accent-cyan-transparent), inset 0 0 10px var(--accent-cyan-transparent); /* Efecto de resplandor y sombra interior más fuerte */
-}
-
-
-/* --- 3. Nuevo Footer Multifuncional --- */
-footer {
-    padding: 50px;
-    background-color: #081428; /* Un tono ligeramente más oscuro */
+    padding: 50px 20px;
+    background-color: #081428;
     border-top: 1px solid #112240;
 }
 
@@ -510,4 +348,211 @@ footer {
     border-top: 1px solid #112240;
     font-size: 0.9em;
     color: var(--text-slate);
+}
+
+/* --- Botón y Pop-up de Contacto --- */
+.contact-button {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark-navy);
+    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+    border: none; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex; justify-content: center; align-items: center; font-size: 1.8em;
+    cursor: pointer; transition: transform 0.3s ease; z-index: 1000;
+}
+
+.contact-popup {
+    background-color: var(--bg-light-navy);
+    border: 1px solid #1d2d50;
+    color: var(--text-light-slate);
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 370px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    transform: scale(0.95) translateY(120%);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    z-index: 1000;
+    opacity: 0;
+}
+
+.contact-popup.show {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.contact-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1d2d50;
+}
+
+.contact-popup-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    color: var(--text-light-slate);
+    font-weight: 600;
+}
+
+.contact-popup .close-button {
+    background: none;
+    border: none;
+    font-size: 2.2em;
+    line-height: 1;
+    color: var(--text-slate);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 5px;
+}
+
+.contact-popup .close-button:hover {
+    color: var(--accent-cyan);
+    transform: scale(1.1);
+}
+
+.contact-popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-popup form label {
+    font-size: 0.9em;
+    color: var(--text-slate);
+}
+
+.contact-popup input, .contact-popup textarea {
+    background-color: var(--bg-dark-navy);
+    border: 1px solid #2c3a5a;
+    border-radius: 5px;
+    color: var(--text-light-slate);
+    padding: 14px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-popup input:focus, .contact-popup textarea:focus {
+    border-color: var(--accent-cyan);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-cyan-transparent);
+}
+
+.contact-popup button[type="submit"] {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark-navy);
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.contact-popup button[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+/* --- Media Queries (para diseño responsivo) --- */
+
+/* Pantallas medianas (tabletas y laptops pequeñas) */
+@media (max-width: 900px) {
+    .nav-links {
+        margin-right: 20px;
+    }
+    nav {
+        padding: 20px;
+    }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--bg-light-navy);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .nav-links.is-open {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        font-size: 1.5em;
+        margin: 15px 0;
+    }
+
+    .nav-contact-button {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .hamburger.is-open .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.is-open .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.is-open .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .footer-column ul {
+        padding: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Ajustes para móviles extra pequeños */
+@media (max-width: 480px) {
+    .logo-inline {
+        height: 45px;
+    }
+
+    .brand-name {
+        font-size: 1.4em;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(30px, 10vw, 50px);
+    }
+    
+    .logos-container img {
+        height: 100px;
+    }
+
+    .contact-popup {
+        width: 90%;
+        right: 5%;
+        bottom: 90px;
+    }
 }

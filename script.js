@@ -1,18 +1,30 @@
-// Seleccionamos los elementos de la página
-const openBtn = document.getElementById('open-contact-form');
-const closeBtn = document.getElementById('close-contact-form');
+// Script para el pop-up de contacto
+const openContactBtn = document.getElementById('open-contact-form');
+const closeContactBtn = document.getElementById('close-contact-form');
 const contactPopup = document.getElementById('contact-popup');
 
-// Función para abrir el formulario
 function openForm() {
     contactPopup.classList.add('show');
 }
 
-// Función para cerrar el formulario
 function closeForm() {
     contactPopup.classList.remove('show');
 }
 
-// Escuchamos los clics en los botones
-openBtn.addEventListener('click', openForm);
-closeBtn.addEventListener('click', closeForm);
+if (openContactBtn) {
+    openContactBtn.addEventListener('click', openForm);
+}
+if (closeContactBtn) {
+    closeContactBtn.addEventListener('click', closeForm);
+}
+
+// Script para el menú hamburguesa
+const hamburgerBtn = document.getElementById('hamburger-button');
+const navMenu = document.getElementById('nav-menu');
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('is-open');
+        hamburgerBtn.classList.toggle('is-open');
+    });
+}
